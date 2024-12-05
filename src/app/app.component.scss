@@ -6,6 +6,22 @@
   z-index: -1;
 }
 
+#githubqr {
+  position: fixed;
+  bottom: 1%;
+  left: 45%;
+  width: 10%;
+
+  @media (max-width: 1600px) {
+    display: none;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 14px;
+  }
+}
+
 mat-card-content {
   padding: 0;
 }
@@ -32,7 +48,7 @@ header {
 
 #balance-panel {
   position: fixed;
-  top: 65%;
+  top: 60%;
   left: 35%;
 
   @media (max-width: 1600px) {
