@@ -1,0 +1,18 @@
+<mat-card mat-elevation-z16>
+  <mat-card-title>
+    <b><mat-icon>{{recordType == 'incomes' ? 'add_card' : 'shopping_cart_checkout'}}</mat-icon> {{recordType | uppercase}}: new record</b>  
+  </mat-card-title>
+  <mat-card-content>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <formly-form 
+    [form]="form"
+    [fields]="fields"
+    [model]="model">
+  </formly-form>
+  <button [disabled]="!form.valid" mat-flat-button type="submit" color="primary" class="add-button" aria-label="Add new record">
+    <mat-icon>note_add</mat-icon> Add
+  </button>
+</form>
+</mat-card-content>
+</mat-card>
+

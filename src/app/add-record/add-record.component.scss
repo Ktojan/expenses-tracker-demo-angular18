@@ -1,0 +1,22 @@
+:host {
+  width: 100%;
+}
+
+#enter-expense {
+  .row {
+    padding: 20px 0 20px 0;
+  }
+}
+
+.add-button {
+  width: 120px;
+  margin-bottom: 0.5rem;
+}
+
+mat-card-title {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid lightgray;
+}

@@ -1,0 +1,80 @@
+<img src="backgr.jpg" class="bg-image" />
+<header>
+  <h1>Galaxy Hitchhiker's Expenses\Incomes Tracker</h1> 
+  <img src="dontpanic.jpeg" height="70" style="margin: 2px; border-radius: 8px;" /> 
+</header>
+
+<mat-grid-list cols="2" rowHeight="11vh">
+  <mat-grid-tile [rowspan]="1">
+    <mat-card mat-elevation-z16>
+      <mat-card-title>Expense Categories</mat-card-title>
+        <mat-card-content>            
+            <mat-chip-set aria-label="List of expenses categories">
+              @for (category of expCategories; track category;) {
+              <mat-chip style="background-color: #9b4851">
+                <b>{{category}}</b>
+              </mat-chip>
+            }
+            </mat-chip-set>
+        </mat-card-content>       
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile [rowspan]="1">
+    <mat-card mat-elevation-z16>
+      <mat-card-title>Incomes Categories</mat-card-title>
+        <mat-card-content>            
+            <mat-chip-set aria-label="List of income categories">
+              @for (category of incCategories; track category;) {
+              <mat-chip style="background-color: lightgreen;">
+                <b>{{category}}</b>
+              </mat-chip>
+            }
+            </mat-chip-set>
+        </mat-card-content>       
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile [rowspan]="2">
+    <app-add-record [type]="expType" [categories]="expCategories"></app-add-record>
+  </mat-grid-tile>
+
+  <mat-grid-tile [rowspan]="2">
+    <app-add-record [type]="incType" [categories]="incCategories"></app-add-record>
+  </mat-grid-tile>
+
+  <mat-grid-tile [rowspan]="5" id="exphistory">
+    <app-records-history [type]="expType"></app-records-history>
+  </mat-grid-tile>
+
+  <mat-grid-tile [rowspan]="5" id="inchistory">
+    <app-records-history [type]="incType"></app-records-history>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-expansion-panel id="balance-panel" [style.background]="$currentBalance() > 0 ? 'lightgreen' : '#9b4851'">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      BALANCE
+    </mat-panel-title>
+    <mat-panel-description>
+      <b id="balance-sum">${{ $currentBalance() }}</b>
+      <mat-icon>display_settings</mat-icon>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <h2>Expense summary: ${{ $expensesSum() }}</h2>
+  <mat-chip-set>
+     @for (category of expCategories; track category;) { <!-- todo -->
+    <mat-chip>
+      <b>{{category}}: $55</b>
+    </mat-chip>
+  }</mat-chip-set>
+  
+  <h2>Incomes summary: ${{ $incomesSum() }}</h2>
+  <mat-chip-set>
+    @for (category of incCategories; track category;) {
+    <mat-chip>
+      <b>{{category}}: $55</b>
+    </mat-chip>
+  }</mat-chip-set>
+</mat-expansion-panel>
