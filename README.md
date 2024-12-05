@@ -8,9 +8,11 @@ Tech task in brief:
 - Angular latest version
 - Readable and understandable names of variables, classes, functions and methods
 
+Live demo: [Vercel deploy](https://expenses-tracker-demo-angular18.vercel.app/)
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm install`, then `npm start` (Node >= 16) for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ![galaxy1](https://github.com/user-attachments/assets/e60f0d86-85f7-4622-a382-b555fb5da52f)
 
